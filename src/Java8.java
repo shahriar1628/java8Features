@@ -29,6 +29,10 @@ public class Java8 {
             System.out.println(person.getName());
             System.out.println(person.getAge());
         }
+        UniqueId<Person> PersonuniqueId =  a -> a.getName() + " " + String.valueOf(a.getAge()) ;
+        UniqueId<Section> SectionuniqueId =  a -> a.getName() + "-" + String.valueOf(a.getCode()) ;
+       System.out.println(PersonuniqueId.getUiqueId(list.get(0))) ;
+        System.out.println(SectionuniqueId.getUiqueId(new Section("Java8", "Java201"))) ;
 
 
 
