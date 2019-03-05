@@ -1,3 +1,5 @@
+import java.util.function.Function;
+
 public class Person {
 
     private String name ;
@@ -13,5 +15,17 @@ public class Person {
 
     public int getAge() {
         return age;
+    }
+
+
+    public static String getPersonProperty(Person person, Function<Person,String> f) {
+        return f.apply(person) ;
+    }
+
+    public static  Function<Person,String> getPersonProperty(String property) {
+        if(property.equals("name"))
+        return a-> a.getName() ;
+        else
+            return a-> String.valueOf(a.getAge()) ;
     }
 }

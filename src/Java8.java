@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
 
 public class Java8 {
 
@@ -31,10 +32,20 @@ public class Java8 {
         }
         UniqueId<Person> PersonuniqueId =  a -> a.getName() + " " + String.valueOf(a.getAge()) ;
         UniqueId<Section> SectionuniqueId =  a -> a.getName() + "-" + String.valueOf(a.getCode()) ;
+
        System.out.println(PersonuniqueId.getUiqueId(list.get(0))) ;
-        System.out.println(SectionuniqueId.getUiqueId(new Section("Java8", "Java201"))) ;
+       System.out.println(SectionuniqueId.getUiqueId(new Section("Java8", "Java201"))) ;
+       System.out.println(SectionuniqueId.getUiqueId(new Section("Java8", "Java201"))) ;
+       System.out.println(Person.getPersonProperty(list.get(0),a-> a.getName())) ;
+       Function f2 = Person.getPersonProperty("name");
+        Function f3 = Person.getPersonProperty("age");
+        System.out.println(f2.apply(list.get(0)));
+        System.out.println(f3.apply(list.get(0)));
+
+
 
 
 
     }
+
 }
